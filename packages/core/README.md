@@ -5,6 +5,8 @@
 [![bundle][bundle-src]][bundle-href]
 [![License][license-src]][license-href]
 
+core
+
 ## License
 
 [MIT](./LICENSE) License © [hackycy](https://github.com/hackycy)

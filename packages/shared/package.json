@@ -1,5 +1,5 @@
 {
-  "name": "@hackycy-toolkit/advanced-antdv",
+  "name": "@hackycy-toolkit/shared",
   "type": "module",
   "version": "0.0.0",
   "description": "advanced components for ant-design-vue",
@@ -14,12 +14,10 @@
   "keywords": [],
   "sideEffects": false,
   "exports": {
-    ".": "./dist/index.mjs",
+    "./hooks": "./dist/hooks.mjs",
+    "./lodash": "./dist/lodash.mjs",
     "./package.json": "./package.json"
   },
-  "main": "./dist/index.mjs",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.mts",
   "files": [
     "dist"
   ],
@@ -27,22 +25,18 @@
     "build": "tsdown",
     "dev": "tsdown --watch",
     "lint": "eslint",
-    "prepublishOnly": "nr build",
+    "prepublishOnly": "npm run build",
     "release": "bumpp",
     "start": "tsx src/index.ts",
     "test": "vitest",
     "typecheck": "tsc",
     "prepare": "simple-git-hooks"
   },
-  "peerDependencies": {
-    "ant-design-vue": "^4",
-    "vue": "^3"
-  },
   "dependencies": {
-    "@hackycy-toolkit/shared": "workspace:*"
+    "@vueuse/core": "catalog:lib",
+    "lodash-es": "catalog:lib"
   },
   "devDependencies": {
-    "ant-design-vue": "catalog:lib",
-    "vue": "catalog:lib"
+    "@types/lodash-es": "catalog:types"
   }
 }

@@ -14,12 +14,10 @@
   "keywords": [],
   "sideEffects": false,
   "exports": {
-    ".": "./dist/index.mjs",
+    "./request": "./dist/request/index.mjs",
+    "./storage": "./dist/storage/index.mjs",
     "./package.json": "./package.json"
   },
-  "main": "./dist/index.mjs",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.mts",
   "files": [
     "dist"
   ],
@@ -33,5 +31,14 @@
     "test": "vitest",
     "typecheck": "tsc",
     "prepare": "simple-git-hooks"
+  },
+  "peerDependencies": {
+    "axios": "^1"
+  },
+  "dependencies": {
+    "@hackycy-toolkit/shared": "workspace:*"
+  },
+  "devDependencies": {
+    "axios": "catalog:lib"
   }
 }

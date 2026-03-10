@@ -14,12 +14,11 @@
   "keywords": [],
   "sideEffects": false,
   "scripts": {
-    "build": "nr -r build",
-    "dev": "nr -r dev",
+    "build": "turbo build",
+    "dev": "turbo dev",
     "lint": "eslint --cache .",
     "prepublishOnly": "nr build",
     "release": "bumpp -r",
-    "test": "nr -r test",
     "typecheck": "tsc",
     "prepare": "simple-git-hooks",
     "open:packages": "npx open-packages-on-npm",
@@ -27,22 +26,19 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "catalog:cli",
-    "@antfu/ni": "catalog:cli",
-    "@antfu/utils": "catalog:inlined",
     "@types/node": "catalog:types",
     "bumpp": "catalog:cli",
     "eslint": "catalog:cli",
     "lint-staged": "catalog:cli",
     "publint": "catalog:cli",
     "simple-git-hooks": "catalog:cli",
-    "tinyexec": "catalog:testing",
     "tsdown": "catalog:cli",
     "tsx": "catalog:cli",
+    "turbo": "catalog:cli",
     "typescript": "catalog:cli",
     "vite": "catalog:cli",
     "vitest": "catalog:testing",
-    "vitest-package-exports": "catalog:testing",
-    "yaml": "catalog:testing"
+    "vitest-package-exports": "catalog:testing"
   },
   "simple-git-hooks": {
     "pre-commit": "pnpm i --frozen-lockfile --ignore-scripts --offline && npx lint-staged"
