@@ -18,4 +18,8 @@ function setGlobalConfig(config: Partial<AdvancedAntdvGlobalConfig>) {
   Object.assign(globalConfig, config)
 }
 
-export { globalConfig, setGlobalConfig }
+function getGlobalConfig() {
+  return globalConfig
+}
+
+export { getGlobalConfig, setGlobalConfig }
