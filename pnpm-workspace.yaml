@@ -1,5 +1,4 @@
 catalogMode: prefer
-
 ignoreWorkspaceRootCheck: true
 shellEmulator: true
 trustPolicy: no-downgrade
@@ -31,6 +30,7 @@ catalogs:
     ant-design-vue: ^4.2.6
     axios: ^1.13.6
     big.js: ^7.0.1
+    dayjs: ^1.11.20
     es-toolkit: ^1.45.1
     theme-colors: ^0.1.0
     vue: ^3.5.30

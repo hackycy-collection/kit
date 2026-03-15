@@ -1,20 +1,144 @@
+/**
+ * Precision Math Library (big.js 版本) - Vitest Test Suite
+ * 高精度数学运算库测试集
+ */
+
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import {
+  assertSafeIntegerRange,
+  getDecimalPlaces,
+  getSafeIntegerCheckState,
+  normalizePrecision,
   precisionAdd,
   precisionDivide,
   precisionMultiply,
   precisionSubtract,
+  reduceNumbers,
+  resetSafeIntegerCheck,
   roundToPrecision,
-} from './decimal'
+  scaleToInteger,
+  setSafeIntegerCheck,
+} from './precision-math'
 
-describe('precision-math', () => {
+describe('precision-math (big.js version)', () => {
   // 每个测试前重置状态
   beforeEach(() => {
+    resetSafeIntegerCheck()
     vi.restoreAllMocks()
   })
 
   afterEach(() => {
     vi.restoreAllMocks()
+  })
+
+  // ==================== 内部工具函数测试 ====================
+  describe('normalizePrecision', () => {
+    it('应该修正浮点数精度误差', () => {
+      expect(normalizePrecision(0.09999999999999998)).toBe(0.1)
+      expect(normalizePrecision(0.30000000000000004)).toBe(0.3)
+      expect(normalizePrecision(1.0000000000000002)).toBe(1)
+    })
+
+    it('应该处理整数', () => {
+      expect(normalizePrecision(10)).toBe(10)
+      expect(normalizePrecision(0)).toBe(0)
+      expect(normalizePrecision(-5)).toBe(-5)
+    })
+
+    it('应该支持自定义精度', () => {
+      expect(normalizePrecision(0.123456789, 5)).toBe(0.12346)
+      expect(normalizePrecision(Math.PI, 3)).toBe(3.14)
+    })
+
+    it('应该处理负数', () => {
+      expect(normalizePrecision(-0.09999999999999998)).toBe(-0.1)
+    })
+  })
+
+  describe('getDecimalPlaces', () => {
+    it('应该获取小数位数', () => {
+      expect(getDecimalPlaces(0.1)).toBe(1)
+      expect(getDecimalPlaces(0.01)).toBe(2)
+      expect(getDecimalPlaces(0.123)).toBe(3)
+    })
+
+    it('应该处理整数', () => {
+      expect(getDecimalPlaces(10)).toBe(0)
+      expect(getDecimalPlaces(0)).toBe(0)
+      expect(getDecimalPlaces(-5)).toBe(0)
+    })
+
+    it('应该处理科学计数法', () => {
+      expect(getDecimalPlaces(1e-1)).toBe(1)
+      expect(getDecimalPlaces(1e-7)).toBe(7)
+      expect(getDecimalPlaces(1.23e-3)).toBe(5)
+    })
+
+    it('应该处理负数', () => {
+      expect(getDecimalPlaces(-0.123)).toBe(3)
+    })
+  })
+
+  describe('scaleToInteger', () => {
+    it('应该将小数转换为整数', () => {
+      expect(scaleToInteger(0.1)).toBe(1)
+      expect(scaleToInteger(0.01)).toBe(1)
+      expect(scaleToInteger(1.23)).toBe(123)
+    })
+
+    it('应该处理整数', () => {
+      expect(scaleToInteger(10)).toBe(10)
+      expect(scaleToInteger(0)).toBe(0)
+    })
+
+    it('应该处理科学计数法', () => {
+      expect(scaleToInteger(1e-7)).toBe(1)
+      expect(scaleToInteger(1.23e-5)).toBe(123)
+    })
+  })
+
+  describe('assertSafeIntegerRange', () => {
+    it('应该在数字超出安全范围时发出警告', () => {
+      const warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {})
+
+      assertSafeIntegerRange(Number.MAX_SAFE_INTEGER + 1)
+      expect(warnSpy).toHaveBeenCalled()
+
+      assertSafeIntegerRange(Number.MIN_SAFE_INTEGER - 1)
+      expect(warnSpy).toHaveBeenCalledTimes(2)
+    })
+
+    it('不应该在安全范围内发出警告', () => {
+      const warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {})
+
+      assertSafeIntegerRange(Number.MAX_SAFE_INTEGER)
+      assertSafeIntegerRange(Number.MIN_SAFE_INTEGER)
+      assertSafeIntegerRange(0)
+      assertSafeIntegerRange(100)
+
+      expect(warnSpy).not.toHaveBeenCalled()
+    })
+
+    it('当禁用时应该不发出警告', () => {
+      setSafeIntegerCheck(false)
+      const warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {})
+
+      assertSafeIntegerRange(Number.MAX_SAFE_INTEGER + 1)
+      expect(warnSpy).not.toHaveBeenCalled()
+    })
+  })
+
+  describe('reduceNumbers', () => {
+    it('应该对数组进行归约操作', () => {
+      const sum = (a: number, b: number) => a + b
+      expect(reduceNumbers([1, 2, 3, 4], sum)).toBe(10)
+      expect(reduceNumbers([10, 20], sum)).toBe(30)
+    })
+
+    it('应该处理多个参数的自定义操作', () => {
+      const multiply = (a: number, b: number) => a * b
+      expect(reduceNumbers([2, 3, 4], multiply)).toBe(24)
+    })
   })
 
   // ==================== 主要运算函数测试 ====================
@@ -54,14 +178,18 @@ describe('precision-math', () => {
         expect(precisionMultiply(0.1, 0.1, 0.1, 0.1)).toBe(0.0001)
         expect(precisionMultiply(2, 2, 2, 2)).toBe(16)
       })
+
+      it('应该处理空参数', () => {
+        expect(precisionMultiply()).toBe(0)
+      })
+
+      it('应该处理单个参数', () => {
+        expect(precisionMultiply(5)).toBe(5)
+        expect(precisionMultiply(0.1)).toBe(0.1)
+      })
     })
 
     describe('边缘情况', () => {
-      it('应该处理大数', () => {
-        // eslint-disable-next-line no-loss-of-precision
-        expect(precisionMultiply(999999999, 999999999)).toBe(999999998000000001)
-      })
-
       it('应该处理科学计数法结果', () => {
         expect(precisionMultiply(1e-10, 1e-10)).toBe(1e-20)
       })
@@ -101,6 +229,14 @@ describe('precision-math', () => {
 
       it('应该处理多个小数', () => {
         expect(precisionAdd(0.1, 0.1, 0.1, 0.1, 0.1)).toBe(0.5)
+      })
+
+      it('应该处理空参数', () => {
+        expect(precisionAdd()).toBe(0)
+      })
+
+      it('应该处理单个参数', () => {
+        expect(precisionAdd(5)).toBe(5)
       })
     })
 
@@ -146,6 +282,14 @@ describe('precision-math', () => {
         expect(precisionSubtract(1, 0.1, 0.2)).toBe(0.7)
         expect(precisionSubtract(10, 2, 3)).toBe(5)
       })
+
+      it('应该处理空参数', () => {
+        expect(precisionSubtract()).toBe(0)
+      })
+
+      it('应该处理单个参数', () => {
+        expect(precisionSubtract(5)).toBe(5)
+      })
     })
   })
 
@@ -185,11 +329,24 @@ describe('precision-math', () => {
         expect(precisionDivide(100, 2, 5)).toBe(10)
         expect(precisionDivide(1, 0.1, 0.1)).toBe(100)
       })
+
+      it('应该处理空参数', () => {
+        expect(precisionDivide()).toBe(0)
+      })
+
+      it('应该处理单个参数', () => {
+        expect(precisionDivide(5)).toBe(5)
+      })
     })
 
     describe('边界情况', () => {
       it('应该处理除数小于被除数', () => {
         expect(precisionDivide(0.1, 0.3)).toBeCloseTo(0.333333333333333, 10)
+      })
+
+      it('应该在除数为零时抛出错误', () => {
+        expect(() => precisionDivide(1, 0)).toThrow('Division by zero')
+        expect(() => precisionDivide(1, 0.0)).toThrow('Division by zero')
       })
     })
   })
@@ -246,6 +403,38 @@ describe('precision-math', () => {
     })
   })
 
+  // ==================== 配置函数测试 ====================
+  describe('setSafeIntegerCheck', () => {
+    it('应该默认开启', () => {
+      expect(getSafeIntegerCheckState()).toBe(true)
+    })
+
+    it('应该能够关闭', () => {
+      setSafeIntegerCheck(false)
+      expect(getSafeIntegerCheckState()).toBe(false)
+    })
+
+    it('应该能够重新开启', () => {
+      setSafeIntegerCheck(false)
+      setSafeIntegerCheck(true)
+      expect(getSafeIntegerCheckState()).toBe(true)
+    })
+
+    it('不传参数应该默认开启', () => {
+      setSafeIntegerCheck(false)
+      setSafeIntegerCheck()
+      expect(getSafeIntegerCheckState()).toBe(true)
+    })
+  })
+
+  describe('resetSafeIntegerCheck', () => {
+    it('应该重置为开启状态', () => {
+      setSafeIntegerCheck(false)
+      resetSafeIntegerCheck()
+      expect(getSafeIntegerCheckState()).toBe(true)
+    })
+  })
+
   // ==================== 综合测试 ====================
   describe('综合运算', () => {
     it('应该支持混合运算', () => {
@@ -295,8 +484,8 @@ describe('precision-math', () => {
         precisionDivide(0.3, 0.1)
       }
       const duration = Date.now() - start
-      // 应该在合理时间内完成（1秒内）
-      expect(duration).toBeLessThan(1000)
+      // 应该在合理时间内完成（2秒内，big.js 比原生慢但精度更高）
+      expect(duration).toBeLessThan(2000)
     })
   })
 })

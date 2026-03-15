@@ -35,6 +35,7 @@
   "dependencies": {
     "@ctrl/tinycolor": "catalog:lib",
     "big.js": "catalog:lib",
+    "dayjs": "catalog:lib",
     "es-toolkit": "catalog:lib",
     "theme-colors": "catalog:lib"
   },

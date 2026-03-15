@@ -485,12 +485,7 @@ export function useTable<T = any>(
       return
     }
 
-    const { pageField, sizeField, listField, totalField } = Object.assign(
-      {},
-      DEFAULT_FETCH_SETTING,
-      (window as any)[GLOBAL_VARIABLE_FETCH_SETTING_KEY] || {},
-      fetchSetting,
-    )
+    const { pageField, sizeField, listField, totalField } = { ...DEFAULT_FETCH_SETTING, ...(window as any)[GLOBAL_VARIABLE_FETCH_SETTING_KEY] || {}, ...fetchSetting }
 
     try {
       const pagination = unref(getPaginationProps)
