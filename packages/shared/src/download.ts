@@ -24,6 +24,7 @@ export async function downloadFileFromUrl({
   const isChrome = window.navigator.userAgent.toLowerCase().includes('chrome')
   const isSafari = window.navigator.userAgent.toLowerCase().includes('safari')
 
+  // eslint-disable-next-line e18e/prefer-static-regex
   if (/iP/.test(window.navigator.userAgent)) {
     console.error('Your browser does not support download!')
     return

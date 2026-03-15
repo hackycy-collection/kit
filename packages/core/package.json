@@ -36,6 +36,7 @@
   },
   "dependencies": {
     "@hackycy-toolkit/shared": "workspace:*",
+    "@vueuse/core": "catalog:lib",
     "axios": "catalog:lib"
   }
 }
