@@ -1,9 +1,5 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
-
-## Overview
-
 A TypeScript monorepo (`@hackycy-toolkit`) providing shared utilities, Vue 3 component enhancements (Ant Design Vue), and Node.js helpers. Uses pnpm workspaces + Turborepo.
 
 ## Commands
