@@ -5,7 +5,7 @@ import type {
 } from 'ant-design-vue'
 
 import type { ComputedRef, Ref } from 'vue'
-import type { FetchParams, FetchSetting } from '../types'
+import type { FetchParams, FetchSetting } from '../../types'
 
 import { cloneDeep, get, isFunction, merge } from '@hackycy-toolkit/shared/es-toolkit'
 
@@ -25,11 +25,9 @@ import {
   watchEffect,
 } from 'vue'
 
-import { getGlobalConfig } from '../config'
+import { getGlobalConfig } from '../../config'
 
-import '../styles/use-antdv-table.scss'
-
-export type { FetchParams, FetchSetting }
+import './use-antdv-table.scss'
 
 export const DEFAULT_PAGE_SIZE = 10
 export const DEFAULT_PAGE_SIZE_OPTIONS = ['10', '20', '50', '100']

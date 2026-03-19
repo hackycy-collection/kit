@@ -1,3 +1,5 @@
+import { merge } from 'es-toolkit'
+
 /**
  * 获取嵌套对象的字段值
  * @param obj - 要查找的对象
@@ -28,4 +30,15 @@ export function getNestedValue<T>(obj: T, path: string): any {
  */
 export async function sleep(ms: number) {
   return new Promise(resolve => setTimeout(resolve, ms))
+}
+
+/**
+ * 定义全局配置的函数，返回获取和设置全局配置的方法
+ */
+export function defineGlobalConfig<T extends object>() {
+  const config = {} as T
+  return {
+    getGlobalConfig: (): Readonly<T> => config,
+    setGlobalConfig: (cfg: T) => { merge(config, cfg) },
+  }
 }
