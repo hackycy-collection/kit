@@ -156,7 +156,7 @@ importers:
 
   packages/advanced-antdv:
     dependencies:
-      '@hackycy-toolkit/shared':
+      '@hackycy-kit/shared':
         specifier: workspace:*
         version: link:../shared
       '@vueuse/core':
@@ -170,17 +170,7 @@ importers:
         specifier: catalog:lib
         version: 3.5.30(typescript@5.9.3)
 
-  packages/core:
-    dependencies:
-      '@hackycy-toolkit/shared':
-        specifier: workspace:*
-        version: link:../shared
-      '@vueuse/core':
-        specifier: catalog:lib
-        version: 14.2.1(vue@3.5.30(typescript@5.9.3))
-      axios:
-        specifier: catalog:lib
-        version: 1.13.6
+  packages/form: {}
 
   packages/node: {}
 
@@ -206,17 +196,29 @@ importers:
         specifier: catalog:types
         version: 6.2.2
 
+  packages/tools:
+    dependencies:
+      '@hackycy-kit/shared':
+        specifier: workspace:*
+        version: link:../shared
+      '@vueuse/core':
+        specifier: catalog:lib
+        version: 14.2.1(vue@3.5.30(typescript@5.9.3))
+      axios:
+        specifier: catalog:lib
+        version: 1.13.6
+
   playground:
     dependencies:
-      '@hackycy-toolkit/advanced-antdv':
+      '@hackycy-kit/advanced-antdv':
         specifier: workspace:*
         version: link:../packages/advanced-antdv
-      '@hackycy-toolkit/core':
-        specifier: workspace:*
-        version: link:../packages/core
-      '@hackycy-toolkit/shared':
+      '@hackycy-kit/shared':
         specifier: workspace:*
         version: link:../packages/shared
+      '@hackycy-kit/tools':
+        specifier: workspace:*
+        version: link:../packages/tools
       ant-design-vue:
         specifier: catalog:lib
         version: 4.2.6(vue@3.5.30(typescript@5.9.3))

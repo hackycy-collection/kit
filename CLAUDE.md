@@ -1,6 +1,6 @@
 # CLAUDE.md
 
-A TypeScript monorepo (`@hackycy-toolkit`) providing shared utilities, Vue 3 component enhancements (Ant Design Vue), and Node.js helpers. Uses pnpm workspaces + Turborepo.
+A TypeScript monorepo (`@hackycy-kit`) providing shared utilities, Vue 3 component enhancements (Ant Design Vue), and Node.js helpers. Uses pnpm workspaces + Turborepo.
 
 ## Commands
 
@@ -29,7 +29,7 @@ pnpm vitest run --dom packages/shared
 
 ```
 shared          (foundation: no workspace deps)
-  ├── core      (extends shared + adds cache, axios, Vue hooks)
+  ├── tools      (extends shared + adds cache, axios, Vue hooks)
   ├── advanced-antdv  (Vue 3 + Ant Design Vue table/modal wrappers)
   └── (no relation)
 node            (standalone Node.js utilities, no workspace deps)
@@ -51,10 +51,6 @@ node            (standalone Node.js utilities, no workspace deps)
 - **ESLint:** `@antfu/eslint-config` with `type: 'lib'`.
 - **Pre-commit hook:** `simple-git-hooks` runs `lint-staged` (eslint --fix on all staged files).
 - **Tests:** Vitest 4 with `happy-dom` environment. Tests live alongside source in `__tests__/` directories.
-
-### Subpath Exports (core)
-
-`@hackycy-toolkit/core` uses subpath exports — consumers import from `@hackycy-toolkit/core/cache`, `@hackycy-toolkit/core/request`, `@hackycy-toolkit/core/toolkit`, `@hackycy-toolkit/core/hooks`.
 
 ### Playground
 

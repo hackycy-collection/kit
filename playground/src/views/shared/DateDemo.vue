@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
-import { formatDate, formatDateTime, getCurrentTimezone, getSystemTimezone } from '@hackycy-toolkit/shared'
+import { formatDate, formatDateTime, getCurrentTimezone, getSystemTimezone } from '@hackycy-kit/shared'
 
 type DateFormat =
   | 'YYYY-MM-DD'
@@ -37,7 +37,7 @@ const customFormatted = computed(() =>
 <template>
   <div class="space-y-4">
     <p class="text-soft text-sm m-0">
-      Date utilities from <code class="code-val">@hackycy-toolkit/shared</code>:
+      Date utilities from <code class="code-val">@hackycy-kit/shared</code>:
       timezone-aware formatting with <code class="code-val">dayjs</code>.
     </p>
 

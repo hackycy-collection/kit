@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
-import { StorageManager } from '@hackycy-toolkit/core/cache'
+import { StorageManager } from '@hackycy-kit/tools/cache'
 import { Button, Input, InputNumber } from 'ant-design-vue'
 
 interface StoredEntry {

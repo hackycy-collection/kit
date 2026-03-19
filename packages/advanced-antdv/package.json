@@ -1,16 +1,16 @@
 {
-  "name": "@hackycy-toolkit/advanced-antdv",
+  "name": "@hackycy-kit/advanced-antdv",
   "type": "module",
   "version": "0.0.0",
-  "description": "@hackycy-toolkit/advanced-antdv",
+  "description": "@hackycy-kit/advanced-antdv",
   "author": "hackycy <hackycy@outlook.com>",
   "license": "MIT",
-  "homepage": "https://github.com/hackycy-collection/toolkit#readme",
+  "homepage": "https://github.com/hackycy-collection/kit#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hackycy-collection/toolkit.git"
+    "url": "git+https://github.com/hackycy-collection/kit.git"
   },
-  "bugs": "https://github.com/hackycy-collection/toolkit/issues",
+  "bugs": "https://github.com/hackycy-collection/kit/issues",
   "keywords": [],
   "sideEffects": false,
   "exports": {
@@ -37,7 +37,7 @@
     "vue": "^3"
   },
   "dependencies": {
-    "@hackycy-toolkit/shared": "workspace:*",
+    "@hackycy-kit/shared": "workspace:*",
     "@vueuse/core": "catalog:lib"
   },
   "devDependencies": {

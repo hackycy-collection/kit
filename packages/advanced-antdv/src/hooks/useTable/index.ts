@@ -7,7 +7,7 @@ import type {
 import type { ComputedRef, Ref } from 'vue'
 import type { FetchParams, FetchSetting } from '../../types'
 
-import { cloneDeep, get, isFunction, merge } from '@hackycy-toolkit/shared/es-toolkit'
+import { cloneDeep, get, isFunction, merge } from '@hackycy-kit/shared/es-toolkit'
 
 import { useEventListener } from '@vueuse/core'
 

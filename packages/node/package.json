@@ -1,16 +1,16 @@
 {
-  "name": "@hackycy-toolkit/node",
+  "name": "@hackycy-kit/node",
   "type": "module",
   "version": "0.0.0",
-  "description": "@hackycy-toolkit/node",
+  "description": "@hackycy-kit/node",
   "author": "hackycy <hackycy@outlook.com>",
   "license": "MIT",
-  "homepage": "https://github.com/hackycy-collection/toolkit#readme",
+  "homepage": "https://github.com/hackycy-collection/kit#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hackycy-collection/toolkit.git"
+    "url": "git+https://github.com/hackycy-collection/kit.git"
   },
-  "bugs": "https://github.com/hackycy-collection/toolkit/issues",
+  "bugs": "https://github.com/hackycy-collection/kit/issues",
   "keywords": [],
   "sideEffects": false,
   "exports": {

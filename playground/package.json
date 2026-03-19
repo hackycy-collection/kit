@@ -9,9 +9,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@hackycy-toolkit/advanced-antdv": "workspace:*",
-    "@hackycy-toolkit/core": "workspace:*",
-    "@hackycy-toolkit/shared": "workspace:*",
+    "@hackycy-kit/advanced-antdv": "workspace:*",
+    "@hackycy-kit/tools": "workspace:*",
+    "@hackycy-kit/shared": "workspace:*",
     "ant-design-vue": "catalog:lib",
     "vue": "catalog:lib",
     "vue-router": "^4.5.1"

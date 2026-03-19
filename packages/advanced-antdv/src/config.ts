@@ -1,6 +1,6 @@
 import type { AdvancedAntdvGlobalConfig } from './types'
 
-import { defineGlobalConfig } from '@hackycy-toolkit/shared'
+import { defineGlobalConfig } from '@hackycy-kit/shared'
 
 export const { getGlobalConfig, setGlobalConfig }
   = defineGlobalConfig<AdvancedAntdvGlobalConfig>()

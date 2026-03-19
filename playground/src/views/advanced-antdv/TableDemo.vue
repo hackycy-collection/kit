@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { TableColumnType } from 'ant-design-vue'
 import { onMounted, ref } from 'vue'
-import { useTable } from '@hackycy-toolkit/advanced-antdv'
+import { useTable } from '@hackycy-kit/advanced-antdv'
 import { Button } from 'ant-design-vue'
 
 interface User {

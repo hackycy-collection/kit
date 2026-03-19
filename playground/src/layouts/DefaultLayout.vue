@@ -51,7 +51,7 @@ const pageCategory = computed(() => (route.meta as Record<string, string>).categ
 
       <!-- Footer -->
       <div class="px-5 py-3 border-t border-line">
-        <span class="text-xs text-dim">@hackycy-toolkit</span>
+        <span class="text-xs text-dim">@hackycy</span>
       </div>
     </aside>
 

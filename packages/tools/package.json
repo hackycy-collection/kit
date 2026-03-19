@@ -1,16 +1,16 @@
 {
-  "name": "@hackycy-toolkit/core",
+  "name": "@hackycy-kit/tools",
   "type": "module",
   "version": "0.0.0",
-  "description": "@hackycy-toolkit/core",
+  "description": "@hackycy-kit/tools",
   "author": "hackycy <hackycy@outlook.com>",
   "license": "MIT",
-  "homepage": "https://github.com/hackycy-collection/toolkit#readme",
+  "homepage": "https://github.com/hackycy-collection/kit#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hackycy-collection/toolkit.git"
+    "url": "git+https://github.com/hackycy-collection/kit.git"
   },
-  "bugs": "https://github.com/hackycy-collection/toolkit/issues",
+  "bugs": "https://github.com/hackycy-collection/kit/issues",
   "keywords": [],
   "sideEffects": false,
   "exports": {
@@ -35,7 +35,7 @@
     "typecheck": "tsc"
   },
   "dependencies": {
-    "@hackycy-toolkit/shared": "workspace:*",
+    "@hackycy-kit/shared": "workspace:*",
     "@vueuse/core": "catalog:lib",
     "axios": "catalog:lib"
   }

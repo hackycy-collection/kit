@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
-import { filterTree, mapTree, traverseTreeValues } from '@hackycy-toolkit/shared'
+import { filterTree, mapTree, traverseTreeValues } from '@hackycy-kit/shared'
 
 interface OrgNode {
   id: number
@@ -78,7 +78,7 @@ function getMappedLabel(node: MappedNode): string {
 <template>
   <div class="space-y-4">
     <p class="text-soft text-sm m-0">
-      Tree utilities from <code class="code-val">@hackycy-toolkit/shared</code>:
+      Tree utilities from <code class="code-val">@hackycy-kit/shared</code>:
       <code class="code-val">filterTree</code>, <code class="code-val">mapTree</code>,
       and <code class="code-val">traverseTreeValues</code>.
     </p>

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
-import { convertToHsl, convertToHslCssVar, convertToRgb, isDarkColor, isLightColor, isValidColor } from '@hackycy-toolkit/shared'
+import { convertToHsl, convertToHslCssVar, convertToRgb, isDarkColor, isLightColor, isValidColor } from '@hackycy-kit/shared'
 
 const colorInput = ref('#6366f1')
 
@@ -21,7 +21,7 @@ const swatchPresets = [
 <template>
   <div class="space-y-4">
     <p class="text-soft text-sm m-0">
-      Color utilities from <code class="code-val">@hackycy-toolkit/shared</code>:
+      Color utilities from <code class="code-val">@hackycy-kit/shared</code>:
       detection, HSL/RGB conversion, and CSS variable generation.
     </p>
 

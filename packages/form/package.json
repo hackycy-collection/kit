@@ -1,8 +1,8 @@
 {
-  "name": "@hackycy-kit/shared",
+  "name": "@hackycy-kit/form",
   "type": "module",
   "version": "0.0.0",
-  "description": "@hackycy-kit/shared",
+  "description": "@hackycy-kit/form",
   "author": "hackycy <hackycy@outlook.com>",
   "license": "MIT",
   "homepage": "https://github.com/hackycy-collection/kit#readme",
@@ -15,7 +15,6 @@
   "sideEffects": false,
   "exports": {
     ".": "./dist/index.mjs",
-    "./es-toolkit": "./dist/es-toolkit.mjs",
     "./package.json": "./package.json"
   },
   "types": "./dist/index.d.mts",
@@ -31,15 +30,5 @@
     "start": "tsx src/index.ts",
     "test": "vitest",
     "typecheck": "tsc"
-  },
-  "dependencies": {
-    "@ctrl/tinycolor": "catalog:lib",
-    "big.js": "catalog:lib",
-    "dayjs": "catalog:lib",
-    "es-toolkit": "catalog:lib",
-    "theme-colors": "catalog:lib"
-  },
-  "devDependencies": {
-    "@types/big.js": "catalog:types"
   }
 }
