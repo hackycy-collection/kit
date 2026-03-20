@@ -1,5 +1,6 @@
 export * from './async'
 export * from './color'
+export * from './currency-formatter'
 export * from './date'
 export * from './dom'
 export * from './download'
