@@ -1,4 +1,4 @@
-import { isPromise } from 'es-toolkit'
+import { isPromise } from './general'
 
 /**
  * A helper to try an async function without forking

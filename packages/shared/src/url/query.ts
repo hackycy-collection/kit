@@ -1,5 +1,5 @@
 import type { LocationQuery, LocationQueryRaw, LocationQueryValue, LocationQueryValueRaw } from './types'
-import { isArray } from 'es-toolkit/compat'
+import { isArray } from '../general'
 import { decode, encodeQueryKey, encodeQueryValue, PLUS_RE } from './encoding'
 
 /**

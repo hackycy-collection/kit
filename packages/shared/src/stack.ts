@@ -40,6 +40,7 @@ export class Stack<T> {
    * @returns 栈顶元素
    */
   peek(): T | undefined {
+    // eslint-disable-next-line e18e/prefer-array-at
     return this.items[this.items.length - 1]
   }
 

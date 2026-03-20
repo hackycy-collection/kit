@@ -15,7 +15,6 @@
   "sideEffects": false,
   "exports": {
     ".": "./dist/index.mjs",
-    "./es-toolkit": "./dist/es-toolkit.mjs",
     "./package.json": "./package.json"
   },
   "types": "./dist/index.d.mts",
@@ -36,10 +35,11 @@
     "@ctrl/tinycolor": "catalog:lib",
     "big.js": "catalog:lib",
     "dayjs": "catalog:lib",
-    "es-toolkit": "catalog:lib",
+    "lodash-es": "catalog:lib",
     "theme-colors": "catalog:lib"
   },
   "devDependencies": {
-    "@types/big.js": "catalog:types"
+    "@types/big.js": "catalog:types",
+    "@types/lodash-es": "catalog:types"
   }
 }

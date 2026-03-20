@@ -1,4 +1,4 @@
-import { merge } from 'es-toolkit'
+import { merge } from 'lodash-es'
 
 /**
  * 获取嵌套对象的字段值

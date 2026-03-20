@@ -37,7 +37,7 @@ node            (standalone Node.js utilities, no workspace deps)
 
 ### Packages
 
-- **shared** — Foundation utility library: color, date (dayjs), DOM, download, tree traversal, string helpers, precision math (big.js), event emitter (mitt), and re-exports from `es-toolkit/compat`. All other browser-side packages depend on this.
+- **shared** — Foundation utility library: color, date (dayjs), DOM, download, tree traversal, string helpers, precision math (big.js), event emitter (mitt). All other browser-side packages depend on this.
 - **core** — Re-exports shared, adds `StorageManager` (localStorage/sessionStorage with TTL), re-exports axios, and Vue composition hooks.
 - **advanced-antdv** — `useTable()` hook for ant-design-vue Table with auto-pagination, API fetching, row selection. Peer-depends on `ant-design-vue@^4` and `vue@^3`. Has SCSS styles.
 - **node** — Pure Node.js stdlib utilities: IP resolution, terminal screen clearing, hyperlinks.

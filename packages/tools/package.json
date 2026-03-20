@@ -16,8 +16,8 @@
   "exports": {
     ".": "./dist/index.mjs",
     "./cache": "./dist/cache/index.mjs",
+    "./hooks": "./dist/hooks/index.mjs",
     "./request": "./dist/request/index.mjs",
-    "./toolkit": "./dist/toolkit/index.mjs",
     "./package.json": "./package.json"
   },
   "types": "./dist/index.d.mts",
