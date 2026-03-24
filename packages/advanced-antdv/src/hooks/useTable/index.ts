@@ -313,6 +313,11 @@ export function useTable<T = any>(
       })
     }
 
+    // 没有数据时不渲染表尾，避免出现空白行
+    if (_datasource.length <= 0) {
+      return null
+    }
+
     return () =>
       h(Table, {
         bordered: getProps.value.bordered,
