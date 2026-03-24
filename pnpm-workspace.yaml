@@ -32,6 +32,7 @@ catalogs:
     big.js: ^7.0.1
     dayjs: ^1.11.20
     lodash-es: ^4.17.23
+    qs: ^6.15.0
     theme-colors: ^0.1.0
     vue: ^3.5.30
   play:
@@ -45,6 +46,7 @@ catalogs:
     '@types/big.js': ^6.2.2
     '@types/lodash-es': ^4.17.12
     '@types/node': ^24.10.0
+    '@types/qs': ^6.15.0
 onlyBuiltDependencies:
   - esbuild
   - simple-git-hooks

@@ -1,4 +1,5 @@
-type StorageType = 'localStorage' | 'sessionStorage'
+import type { StorageType } from "./types"
+
 
 interface StorageManagerOptions {
   prefix?: string

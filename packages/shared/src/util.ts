@@ -1,6 +1,30 @@
 import { merge } from 'lodash-es'
 
 /**
+ * 将类的方法绑定到实例上，确保在调用时 `this` 始终指向实例
+ * @param instance - 要绑定方法的类实例
+ */
+export function bindMethods<T extends object>(instance: T): void {
+  const prototype = Object.getPrototypeOf(instance)
+  const propertyNames = Object.getOwnPropertyNames(prototype)
+
+  propertyNames.forEach((propertyName) => {
+    const descriptor = Object.getOwnPropertyDescriptor(prototype, propertyName)
+    const propertyValue = instance[propertyName as keyof T]
+
+    if (
+      typeof propertyValue === 'function'
+      && propertyName !== 'constructor'
+      && descriptor
+      && !descriptor.get
+      && !descriptor.set
+    ) {
+      instance[propertyName as keyof T] = propertyValue.bind(instance)
+    }
+  })
+}
+
+/**
  * 获取嵌套对象的字段值
  * @param obj - 要查找的对象
  * @param path - 用于查找字段的路径，使用小数点分隔

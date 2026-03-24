@@ -36,7 +36,9 @@
   },
   "dependencies": {
     "@hackycy-kit/shared": "workspace:*",
+    "@types/qs": "catalog:types",
     "@vueuse/core": "catalog:lib",
-    "axios": "catalog:lib"
+    "axios": "catalog:lib",
+    "qs": "catalog:lib"
   }
 }

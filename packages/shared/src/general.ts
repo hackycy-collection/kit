@@ -55,3 +55,7 @@ export function isPromise<T = any>(val: unknown): val is Promise<T> {
     && isFunction((val as any).catch)
   )
 }
+
+export function isUndefined(value?: unknown): value is undefined {
+  return value === undefined
+}
