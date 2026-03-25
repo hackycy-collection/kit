@@ -7,6 +7,7 @@ export default antfu(
     ignores: ['./playground/package.json'],
     rules: {
       '@typescript-eslint/explicit-function-return-type': 'off',
+      'yaml/sort-keys': 'off',
     },
   },
 )

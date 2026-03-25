@@ -42,6 +42,9 @@ catalogs:
     typescript:
       specifier: ^5.9.3
       version: 5.9.3
+    unplugin-vue:
+      specifier: ^7.1.1
+      version: 7.1.1
     vite:
       specifier: ^7.2.1
       version: 7.2.1
@@ -153,6 +156,9 @@ importers:
       typescript:
         specifier: catalog:cli
         version: 5.9.3
+      unplugin-vue:
+        specifier: catalog:cli
+        version: 7.1.1(@types/node@24.12.0)(jiti@2.6.1)(sass-embedded@1.97.3)(sass@1.97.3)(tsx@4.20.6)(vue@3.5.30(typescript@5.9.3))(yaml@2.8.2)
       vite:
         specifier: catalog:cli
         version: 7.2.1(@types/node@24.12.0)(jiti@2.6.1)(lightningcss@1.32.0)(sass-embedded@1.97.3)(sass@1.97.3)(tsx@4.20.6)(yaml@2.8.2)
@@ -3293,6 +3299,16 @@ packages:
   unist-util-visit@5.0.0:
     resolution: {integrity: sha512-MR04uvD+07cwl/yhVuVWAtw+3GOR/knlL55Nd/wAdblk27GCVt3lqpTivy/tkJcZoNPzTwS1Y+KMojlLDhoTzg==}
 
+  unplugin-vue@7.1.1:
+    resolution: {integrity: sha512-0171rToKyJtoz+faE9CSGtAhCF7//t8sJueyyfZujf4RcKtoHLU/wqcsnuH5aq3tDB+I/Tg6IXiWgPvI+TK/zw==}
+    engines: {node: '>=20.19.0'}
+    peerDependencies:
+      vue: ^3.2.25
+
+  unplugin@3.0.0:
+    resolution: {integrity: sha512-0Mqk3AT2TZCXWKdcoaufeXNukv2mTrEZExeXlHIOZXdqYoHHr4n51pymnwV8x2BOVxwXbK2HLlI7usrqMpycdg==}
+    engines: {node: ^20.19.0 || >=22.12.0}
+
   unrun@0.2.31:
     resolution: {integrity: sha512-qltXRUeKQSrIgVS4NbH6PXEFqq+dru2ivH9QINfB+TinSlslgQvursJEV56QzaX8VaDCV5KfbROwKTQf/APJFA==}
     engines: {node: '>=20.19.0'}
@@ -3474,6 +3490,9 @@ packages:
 
   warning@4.0.3:
     resolution: {integrity: sha512-rpJyN222KWIvHJ/F53XSZv0Zl/accqHR8et1kpaMTD/fLCRxtV8iX8czMzY7sVZupTI3zcUTg8eycS2kNF9l6w==}
+
+  webpack-virtual-modules@0.6.2:
+    resolution: {integrity: sha512-66/V2i5hQanC51vBQKPH4aI8NMAcBW59FVBs+rC7eGHupMyfn34q7rZIE+ETlJ+XTevqfUhVVBgSUNSW2flEUQ==}
 
   whatwg-mimetype@3.0.0:
     resolution: {integrity: sha512-nt+N2dzIutVRxARx1nghPKGv1xHikU7HKdfafKkLNLindmPU/ch3U31NOCGGA/dmPcmb1VlofO0vnKAcsm0o/Q==}
@@ -6502,6 +6521,35 @@ snapshots:
       unist-util-is: 6.0.0
       unist-util-visit-parents: 6.0.1
 
+  unplugin-vue@7.1.1(@types/node@24.12.0)(jiti@2.6.1)(sass-embedded@1.97.3)(sass@1.97.3)(tsx@4.20.6)(vue@3.5.30(typescript@5.9.3))(yaml@2.8.2):
+    dependencies:
+      '@jridgewell/gen-mapping': 0.3.13
+      '@jridgewell/trace-mapping': 0.3.31
+      '@vue/reactivity': 3.5.30
+      obug: 2.1.1
+      unplugin: 3.0.0
+      vite: 8.0.0-beta.18(@types/node@24.12.0)(jiti@2.6.1)(sass-embedded@1.97.3)(sass@1.97.3)(tsx@4.20.6)(yaml@2.8.2)
+      vue: 3.5.30(typescript@5.9.3)
+    transitivePeerDependencies:
+      - '@types/node'
+      - '@vitejs/devtools'
+      - esbuild
+      - jiti
+      - less
+      - sass
+      - sass-embedded
+      - stylus
+      - sugarss
+      - terser
+      - tsx
+      - yaml
+
+  unplugin@3.0.0:
+    dependencies:
+      '@jridgewell/remapping': 2.3.5
+      picomatch: 4.0.3
+      webpack-virtual-modules: 0.6.2
+
   unrun@0.2.31(synckit@0.11.12):
     dependencies:
       rolldown: 1.0.0-rc.8
@@ -6645,6 +6693,8 @@ snapshots:
   warning@4.0.3:
     dependencies:
       loose-envify: 1.4.0
+
+  webpack-virtual-modules@0.6.2: {}
 
   whatwg-mimetype@3.0.0: {}
 

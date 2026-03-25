@@ -43,7 +43,7 @@ export const DEFAULT_FETCH_SETTING: FetchSetting = {
   totalField: 'total',
 }
 
-export interface TableAction {
+export interface TableApi {
   setProps: (props: Partial<ExtendTableProps & TableProps<any>>) => void
   setDataSource: (dataSource: any[]) => void
   getDataSource: () => any[]
@@ -381,7 +381,7 @@ export function useTable<T = any>(
     }
   })
 
-  const tableAction: TableAction = {
+  const tableAction: TableApi = {
     setProps: (props: Partial<TableProps<T>>) => {
       innerPropsRef.value = {
         ...innerPropsRef.value,
@@ -571,7 +571,7 @@ export function useTable<T = any>(
     UseAntdvTable,
   ] as [
     ComputedRef<TableProps<T>>,
-    TableAction,
+    TableApi,
     {
       loading: ComputedRef<boolean>
       rowSelection: Record<string, any>

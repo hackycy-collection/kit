@@ -13,6 +13,7 @@ const props = withDefaults(
   defineProps<{
     action: TableActionItem;
     dropdown?: boolean;
+    size?: 'small' | 'middle' | 'large'
   }>(),
   {
     dropdown: false,

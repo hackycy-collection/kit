@@ -14,11 +14,15 @@ defineOptions({
 const props = withDefaults(
   defineProps<{
     actions?: TableActionItem[];
-    dropDownActions?: TableActionItem[];
+    dropdownActions?: TableActionItem[];
+    moreText?: string;
+    size?: 'small' | 'middle' | 'large'
   }>(),
   {
     actions: () => [],
-    dropDownActions: () => [],
+    dropdownActions: () => [],
+    moreText: '更多',
+    size: 'small'
   },
 );
 
@@ -26,8 +30,8 @@ const visibleActions = computed(() => {
   return props.actions.filter(Boolean);
 });
 
-const visibleDropDownActions = computed(() => {
-  return props.dropDownActions.filter(Boolean);
+const visibleDropdownActions = computed(() => {
+  return props.dropdownActions.filter(Boolean);
 });
 
 function getActionKey(action: TableActionItem, index: number) {
@@ -41,14 +45,15 @@ function getActionKey(action: TableActionItem, index: number) {
       v-for="(action, index) in visibleActions"
       :key="getActionKey(action, index)"
       :action="action"
+      :size="size"
     />
 
-    <Dropdown v-if="visibleDropDownActions.length > 0" trigger="click">
-      <Button type="link" size="small">更多</Button>
+    <Dropdown v-if="visibleDropdownActions.length > 0" trigger="click">
+      <Button type="link" :size="size">{{ moreText }}</Button>
       <template #overlay>
         <Menu>
           <ActionItem
-            v-for="(action, index) in visibleDropDownActions"
+            v-for="(action, index) in visibleDropdownActions"
             :key="getActionKey(action, index)"
             :action="action"
             dropdown
@@ -58,3 +63,4 @@ function getActionKey(action: TableActionItem, index: number) {
     </Dropdown>
   </Space>
 </template>
+  
