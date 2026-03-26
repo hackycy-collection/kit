@@ -1,41 +1,41 @@
 <script setup lang="ts">
-import type { TableActionItem } from './types';
+import type { TableActionItem } from './types'
 
-import { computed } from 'vue';
+import { Button, Dropdown, Menu, Space } from 'ant-design-vue'
 
-import { Button, Dropdown, Menu, Space } from 'ant-design-vue';
+import { computed } from 'vue'
 
-import ActionItem from './ActionItem.vue';
+import ActionItem from './ActionItem.vue'
 
 defineOptions({
   name: 'TableAction',
-});
+})
 
 const props = withDefaults(
   defineProps<{
-    actions?: TableActionItem[];
-    dropdownActions?: TableActionItem[];
-    moreText?: string;
+    actions?: TableActionItem[]
+    dropdownActions?: TableActionItem[]
+    moreText?: string
     size?: 'small' | 'middle' | 'large'
   }>(),
   {
     actions: () => [],
     dropdownActions: () => [],
     moreText: '更多',
-    size: 'small'
+    size: 'small',
   },
-);
+)
 
 const visibleActions = computed(() => {
-  return props.actions.filter(Boolean);
-});
+  return props.actions.filter(Boolean)
+})
 
 const visibleDropdownActions = computed(() => {
-  return props.dropdownActions.filter(Boolean);
-});
+  return props.dropdownActions.filter(Boolean)
+})
 
 function getActionKey(action: TableActionItem, index: number) {
-  return action.key ?? `${action.label}-${index}`;
+  return action.key ?? `${action.label}-${index}`
 }
 </script>
 
@@ -49,7 +49,9 @@ function getActionKey(action: TableActionItem, index: number) {
     />
 
     <Dropdown v-if="visibleDropdownActions.length > 0" trigger="click">
-      <Button type="link" :size="size">{{ moreText }}</Button>
+      <Button type="link" :size="size">
+        {{ moreText }}
+      </Button>
       <template #overlay>
         <Menu>
           <ActionItem
@@ -63,4 +65,3 @@ function getActionKey(action: TableActionItem, index: number) {
     </Dropdown>
   </Space>
 </template>
-  
