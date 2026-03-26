@@ -3,5 +3,5 @@ export interface TableActionItem {
   label: string
   disabled?: boolean
   danger?: boolean
-  onClick?: () => Promise<void> | void
+  onClick?: () => Promise<any> | any
 }
